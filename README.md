@@ -4,7 +4,7 @@ This is the official code base for our ACM CCS 2021 paper:
 
 ["DataLens: Scalable Privacy Preserving Training via Gradient Compression and Aggregation".](https://arxiv.org/abs/2103.11109)
 
-Boxin Wang, Fan Wu, Yunhui Long, Luka Rimanic, Ce Zhang, Bo Li
+Boxin Wang*, Fan Wu*, Yunhui Long*, Luka Rimanic, Ce Zhang, Bo Li
 
 ## Citation
 ```
@@ -52,7 +52,7 @@ For CelebA and Places365 datasets, please refer to their official websites for d
 ### Training 
 
 ```shell script
-python main.py --checkpoint_dir [checkpoint_dir] --dataset [dataset_name] --train
+python main.py --checkpoint_dir [checkpoint_dir] --dataset [dataset_name] --train --stochastic --signsgd --topk [topk] 
 ```
 
 For example, to train the Datalens on Fashion-MNIST given eps=1 and delta=1e-5
