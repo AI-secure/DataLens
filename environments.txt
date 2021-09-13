@@ -1,0 +1,17 @@
+# packages
+#
+keras-applications        1.0.7                      py_0    https://repo.continuum.io/pkgs/main
+keras-base                2.2.4                    py36_0    anaconda
+keras-gpu                 2.2.4                         0    anaconda
+keras-preprocessing       1.0.9                      py_0    https://repo.continuum.io/pkgs/main
+matplotlib                3.0.3            py36h5429711_0    https://repo.continuum.io/pkgs/main
+matplotlib-base           3.0.3            py36h5f35d83_1    conda-forge
+numpy                     1.16.2           py36h7e9f1db_0    https://repo.continuum.io/pkgs/main
+numpy-base                1.16.2           py36hde5b4d6_0    https://repo.continuum.io/pkgs/main
+scikit-image              0.15.0           py36he1b5a44_0    conda-forge
+scikit-learn              0.20.3           py36hd81dba3_0    https://repo.continuum.io/pkgs/main
+scipy                     1.2.1            py36h7c811a0_0    https://repo.continuum.io/pkgs/main
+tensorboard               1.12.2           py36he6710b0_0    https://repo.continuum.io/pkgs/main
+tensorflow                1.12.0          gpu_py36he68c306_0    https://repo.continuum.io/pkgs/main
+tensorflow-base           1.12.0          gpu_py36h8e0ae2d_0    https://repo.continuum.io/pkgs/main
+tensorflow-gpu            1.12.0               h0d30ee6_0    https://repo.continuum.io/pkgs/main
