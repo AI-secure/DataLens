@@ -6,6 +6,16 @@ This is the official code base for our ACM CCS 2021 paper:
 
 Boxin Wang, Fan Wu, Yunhui Long, Luka Rimanic, Ce Zhang, Bo Li
 
+## Citation
+```
+@article{wang2021datalens,
+  title={DataLens: Scalable Privacy Preserving Training via Gradient Compression and Aggregation},
+  author={Wang, Boxin and Wu, Fan and Long, Yunhui and Rimanic, Luka and Zhang, Ce and Li, Bo},
+  journal={arXiv preprint arXiv:2103.11109},
+  year={2021}
+}
+```
+
 ## Usage
 
 ### Prepare your environment
