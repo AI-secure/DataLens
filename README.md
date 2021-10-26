@@ -11,7 +11,7 @@ Boxin Wang*, Fan Wu*, Yunhui Long*, Luka Rimanic, Ce Zhang, Bo Li
 @article{wang2021datalens,
   title={DataLens: Scalable Privacy Preserving Training via Gradient Compression and Aggregation},
   author={Wang, Boxin and Wu, Fan and Long, Yunhui and Rimanic, Luka and Zhang, Ce and Li, Bo},
-  journal={arXiv preprint arXiv:2103.11109},
+  journal={ACM Conference on Computer and Communications Security (CCS)},
   year={2021}
 }
 ```
@@ -64,6 +64,47 @@ python main.py --checkpoint_dir fmnist_z_dim_50_topk_200_teacher_4000_sigma_5000
 ```
 
 By default, after it reaches the max epsilon, it will generate 10 batches of 10,000 DP samples as `eps-1.00.data-{i}.pkl` (i=0,...9) in `checkpoint_dir`.
+
+#### More example commands:
+
+MNIST:
+```shell script
+python main.py --checkpoint_dir [checkpoint-dir]/ \
+--topk 300 --signsgd --norandom_proj --shuffle  --teachers_batch 80 --batch_teachers 50 \
+--dataset mnist --train --max_eps 10 --train --thresh 0.2 --sigma 800 --nopretrain \
+ --z_dim 50 --nosave_epoch --epoch 300 --save_vote --pretrain_teacher 10 --d_step 2 --stochastic --max_grad 1e-5
+```
+
+Fashion-MNIST
+```shell script
+python main.py --checkpoint_dir [checkpoint-dir] / \
+--topk 350 --signsgd --norandom_proj --shuffle  --teachers_batch 80 --batch_teachers 50 \
+--dataset fashion_mnist --train --max_eps 10 --train --thresh 0.27 --sigma 1000 --nopretrain \
+ --z_dim 64 --nosave_epoch --epoch 300 --save_vote --pretrain_teacher 10 --d_step 2 --stochastic --max_grad 1e-5
+```
+
+```shell script
+python main.py --checkpoint_dir [checkpoint-dir] / \
+--topk 350 --signsgd --norandom_proj --shuffle  --teachers_batch 80 --batch_teachers 50 \
+--dataset fashion_mnist --train --max_eps 10 --train --thresh 0.27 --sigma 1000 --nopretrain \
+ --z_dim 64 --nosave_epoch --epoch 300 --save_vote --pretrain_teacher 10 --d_step 2
+```
+
+CelebA-Gender
+```shell script
+python main.py --checkpoint_dir [checkpoint-dir] / \
+--topk 500 --signsgd --norandom_proj --shuffle  --teachers_batch 100 --batch_teachers 60 \
+--dataset celebA-gender-train --train --max_eps 10 --train --thresh 0.12 --sigma 700 --nopretrain \
+ --z_dim 100 --nosave_epoch --epoch 300 --save_vote --pretrain_teacher 30 --d_step 2 --stochastic
+```
+
+CelebA-Hair
+```shell script
+python main.py --checkpoint_dir [checkpoint-dir] / \
+--topk 500 --signsgd --norandom_proj --shuffle  --teachers_batch 80 --batch_teachers 50 \
+--dataset celebA-hair-trn --train --max_eps 10 --train --thresh 0.25 --sigma 700 --nopretrain \
+ --z_dim 100 --nosave_epoch --epoch 300 --save_vote --pretrain_teacher 30 --d_step 2 --stochastic
+```
 
 ### Training Args
 
@@ -267,5 +308,5 @@ python evaluation/train-classifier-hair.py --data [DP_data_dir]
 The `[DP_data_dir]` is where your generated DP samples are located. In the Fashion-MNIST example above, we have generated 10 bathces of DP samples in `$checkpoint_dir/eps-1.00.data-{i}.pkl` (i=0,...,9). During evaluation, you should run with the prefix of the `data_dir`, where the program will concatenate all of the generated DP samples and use it as the training data. 
 
 ```shell script
-python evaluation/train-classifier-hair.py --data $checkpoint_dir/eps-1.00.data
+python evaluation/train-classifier-fmnist.py --data $checkpoint_dir/eps-1.00.data
 ```
