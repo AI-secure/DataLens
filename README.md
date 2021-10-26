@@ -65,7 +65,41 @@ python main.py --checkpoint_dir fmnist_z_dim_50_topk_200_teacher_4000_sigma_5000
 
 By default, after it reaches the max epsilon, it will generate 10 batches of 10,000 DP samples as `eps-1.00.data-{i}.pkl` (i=0,...9) in `checkpoint_dir`.
 
-#### More example commands:
+#### More example commands (eps=1):
+MNIST
+```shell script
+python main.py --checkpoint_dir [checkpoint-dir] \
+--topk 200 --signsgd --norandom_proj --shuffle  --teachers_batch 80 --batch_teachers 50 \
+--dataset mnist --train --max_eps 1 --train --thresh 0.7 --sigma 5000 --nopretrain \
+--z_dim 50 --save_epoch --epoch 300 --save_vote --d_step 2 --pretrain_teacher 10 --stochastic --max_grad 1e-5
+```
+
+Fashion-MNIST
+```shell script
+python main.py --checkpoint_dir [checkpoint-dir] \
+--topk 200 --signsgd --norandom_proj --shuffle  --teachers_batch 80 --batch_teachers 50 \
+--dataset fashion_mnist --train --max_eps 1 --train --thresh 0.9 --sigma 5000 --nopretrain \
+--z_dim 50 --nosave_epoch --epoch 300 --save_vote --d_step 2 --pretrain_teacher 10 --stochastic --max_grad 1e-5
+```
+
+
+CelebA
+```shell script
+python main.py --checkpoint_dir [checkpoint-dir] \
+--topk 700 --signsgd --norandom_proj --shuffle  --teachers_batch 100 --batch_teachers 60 \
+--dataset celebA-gender-train --train --max_eps 1 --train --thresh 0.85 --sigma 9000 --nopretrain \
+--z_dim 100 --nosave_epoch --epoch 300 --save_vote --d_step 2 --pretrain_teacher 30 --stochastic --max_grad 1e-5
+```
+
+Hair
+```shell script
+python main.py --checkpoint_dir [checkpoint-dir]\
+--topk 700 --signsgd --norandom_proj --shuffle  --teachers_batch 100 --batch_teachers 80 \
+--dataset celebA-hair-trn --train --max_eps 1 --train --thresh 0.9 --sigma 9000 --nopretrain \
+--z_dim 100 --save_epoch --epoch 300 --save_vote --d_step 2 --pretrain_teacher 30 --stochastic --max_grad 1e-5
+```
+
+#### More example commands (eps=10):
 
 MNIST:
 ```shell script
