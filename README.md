@@ -20,7 +20,7 @@ Boxin Wang*, Fan Wu*, Yunhui Long*, Luka Rimanic, Ce Zhang, Bo Li
 
 ### Prepare your environment
 
-Download required packages
+The project is tested on Python 3.6, but a higher version of Python should also work. Download required packages
 
 ```shell script
 pip install -r requirements.txt
